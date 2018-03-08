@@ -1,7 +1,8 @@
 /**************************/
 /* Python Wrapper for EMD */
+// 中文 muzi注释
 /**************************/
-#include <Python.h>
+#include <Python.h>       //Python头文件
 #include <numpy/arrayobject.h>
 
 #include <emd.h>
@@ -14,7 +15,8 @@ static PyObject *_emd(PyObject *self, PyObject *args) {
     int n_x, n_y, i;
     double distance;
 
-    // Parse inputs
+    // Parse inputs        
+    //PyArg_ParseTuple()方法:将Python的参数按照指定格式解析
     if (!PyArg_ParseTuple(args, "O!O!O!O",
         &PyArray_Type, &arg1,
         &PyArray_Type, &arg2,
@@ -56,12 +58,14 @@ static PyObject *_emd(PyObject *self, PyObject *args) {
         flows = PyArray_SimpleNewFromData(2, dims, NPY_DOUBLE, flows_data);
         PyArray_ENABLEFLAGS((PyArrayObject*)flows, NPY_ARRAY_OWNDATA);
         retval = Py_BuildValue("(dO)", distance, flows);
+        // c结构的结果按照指定格式转换为python格式
     } else {
         retval = Py_BuildValue("d", distance);
     }
 
     return retval;
 }
+// 以上为包装函数
 
 static PyMethodDef c_emd_methods[] = {
    { "_emd", (PyCFunction)_emd, METH_VARARGS,
@@ -76,6 +80,7 @@ static PyMethodDef c_emd_methods[] = {
    },
    { NULL, NULL, 0, NULL }
 };
+//为每个模块增加形如以上的数组形式,METH_VARARGS代表参数以tuple的形式传入
 
 void initc_emd(void)
 {
