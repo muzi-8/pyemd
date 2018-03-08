@@ -4,6 +4,7 @@
  * http://www.me.utexas.edu/~jensen/methods/net.pdf/nettrans.pdf *
  * by Gary Doran, 2014                                           *
  *****************************************************************/
+// 中文 muzi注释
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
@@ -14,6 +15,7 @@ struct basic_variable **initialize_flow(int n_x, double *weight_x,
                                        int n_y, double *weight_y,
                                        double **cost);
 struct basic_variable *init_basic(int row, int col, double flow);
+// 以下四个函数的声明
 void insert_basic(struct basic_variable **basis, int size,
                   struct basic_variable *node);
 void remove_basic(struct basic_variable **basis, int size,
