@@ -98,3 +98,7 @@ If you find any bugs or have any questions about this code, please create an
 issue on [GitHub](https://github.com/garydoranjr/pyemd/issues), or contact Gary
 Doran at <gary.doran@case.edu>. Of course, I cannot guarantee any support for
 this software.
+
+备注
+---------------------
+此项目用[python语言对c语言进行了一下包装](https://www.jianshu.com/p/136c9912e929)
