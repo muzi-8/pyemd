@@ -32,7 +32,7 @@ void destruct_basis(struct basic_variable **basis, int size);
  //样本的权重指的含义是什么?
  * @param double **cost : pairwise cost matrix; cost[i][j] holds cost to
  *     "move dirt" from X_i to Y_j 
- //此处的cost变量是否指的就是参数D
+ //此处的cost变量应该指的就是参数D
  * @return double : returns EMD between samples
  */
 double emd(int n_x, double *weight_x,
