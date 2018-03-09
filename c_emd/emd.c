@@ -29,8 +29,10 @@ void destruct_basis(struct basic_variable **basis, int size);
  * @param double *weight_x : list of weights of samples in X (sums to 1)
  * @param int n_y : number of samples in Y
  * @param double *weight_y : list of weights of samples in Y (sums to 1)
+ //样本的权重指的含义是什么?
  * @param double **cost : pairwise cost matrix; cost[i][j] holds cost to
- *     "move dirt" from X_i to Y_j
+ *     "move dirt" from X_i to Y_j 
+ //此处的cost变量是否指的就是参数D
  * @return double : returns EMD between samples
  */
 double emd(int n_x, double *weight_x,
@@ -206,6 +208,7 @@ double emd(int n_x, double *weight_x,
  * Initialize the basic variables with a feasible solution
  * using the "Northwest Corner Rule"
  */
+//初始化:可行解的求解
 struct basic_variable **initialize_flow(int n_x, double *weight_x,
                                        int n_y, double *weight_y,
                                        double **cost){
